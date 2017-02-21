@@ -4,43 +4,35 @@
         private $description;
         private $category_id;
         private $id;
-
         function __construct($description, $id = null, $category_id)
         {
             $this->description = $description;
             $this->id = $id;
             $this->category_id = $category_id;
         }
-
         function setDescription($new_description)
         {
             $this->description = (string) $new_description;
         }
-
         function getDescription()
         {
             return $this->description;
         }
-
         function getId()
         {
             return $this->id;
         }
-
         function getCategoryId()
         {
             return $this->category_id;
         }
-
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO tasks (description, category_id) VALUES ('{$this->getDescription()}', {$this->getCategoryId()})");
-
             // NOTE {$this->getCategoryId()} does not have quotes because you are looking to return an integer !!!
-            
+
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
-
         static function getAll()
         {
             $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks;");
@@ -54,12 +46,10 @@
             }
             return $tasks;
         }
-
         static function deleteAll()
         {
           $GLOBALS['DB']->exec("DELETE FROM tasks;");
         }
-
         static function find($search_id)
         {
             $found_task = null;

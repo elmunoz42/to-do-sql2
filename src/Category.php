@@ -3,34 +3,29 @@
     {
         private $name;
         private $id;
-
+        
         function __construct($name, $id = null)
         {
             $this->name = $name;
             $this->id = $id;
         }
-
         function setName($new_name)
         {
             $this->name = (string) $new_name;
         }
-
         function getName()
         {
             return $this->name;
         }
-
         function getId()
         {
             return $this->id;
         }
-
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO categories (name) VALUES ('{$this->getName()}')");
             $this->id= $GLOBALS['DB']->lastInsertId();
         }
-
         static function getAll()
         {
             $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
@@ -43,12 +38,10 @@
             }
             return $categories;
         }
-
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM categories;");
         }
-
         static function find($search_id)
         {
             $found_category = null;
