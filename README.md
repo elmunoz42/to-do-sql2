@@ -1,17 +1,18 @@
-# _Job-Post_
+# _TO DO WITH CATEGORIES_
 
-#### _User can post a job._
+#### __
 
-#### By _** Sarah Leahy and Carlos Munoz Kampff**_
+#### **_
 
 ## Description
 
 __
 
 
-| Behavior                                              |   Input example   |  Output example |
-|-------------------------------------------------------|:-----------------:|:---------------:|
-|1)User inputs a job opening.                           | "Developer", "Write amazing code."| "Developer", "Write amazing code."|
+## Server Setup:
+CREATE TABLE tasks (id serial PRIMARY KEY, description VARCHAR (255));
+CREATE TABLE categories (id serial PRIMARY KEY, name VARCHAR(255))
+ALTER TABLE tasks ADD category_id int
 
 
 ## Specifications
